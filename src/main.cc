@@ -1,16 +1,16 @@
 #include <SDL2/SDL.h>
-#include <memory>
+#include "util.h"
 
 int main() {
   SDL_Init(SDL_INIT_EVERYTHING);
-  std::unique_ptr<SDL_Window, decltype(&SDL_DestroyWindow)> window(
+  spin::sdl_ptr<SDL_Window> window(
       SDL_CreateWindow("spin!", 100, 100, 640, 480, SDL_WINDOW_SHOWN),
       SDL_DestroyWindow);
   if (!window) {
     return -1;
   }
 
-  std::unique_ptr<SDL_Renderer, decltype(&SDL_DestroyRenderer)> renderer(
+  spin::sdl_ptr<SDL_Renderer> renderer(
       SDL_CreateRenderer(window.get(), -1,
                          SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC),
       SDL_DestroyRenderer);
