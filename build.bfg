@@ -1,0 +1,13 @@
+# -*- python -*-
+import subprocess
+
+cflags = subprocess.check_output(
+    ['sdl2-config --cflags'], shell=True).strip().split(' ')
+libs = subprocess.check_output(
+    ['sdl2-config --static-libs'], shell=True).strip().split(' ')
+main = executable(
+    'main',
+    files=find_files('src', '*.cc', extra='*.h'),
+    compile_options=(
+        ['-std=c++1z', '-Wall', '-Werror', '-Wextra', '-pedantic'] + cflags),
+    link_options=libs + ['-L/usr/local/include/glog'])
