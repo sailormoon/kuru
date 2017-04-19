@@ -1,0 +1,6 @@
+Ignore this for now, mostly a playground.
+
+Planned to be an open-source, portable version of the puzzle game Kurukuru Kuruin.
+https://www.youtube.com/watch?v=qOTK2qR66r4
+
+SDL2 for portability, mainly emscripten.
