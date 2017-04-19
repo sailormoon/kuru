@@ -10,4 +10,4 @@ main = executable(
     files=find_files('src', '*.cc', extra='*.h'),
     compile_options=(
         ['-std=c++1z', '-Wall', '-Werror', '-Wextra', '-pedantic'] + cflags),
-    link_options=libs + ['-L/usr/local/include/glog'])
+    link_options=libs + ['-lglog'])
