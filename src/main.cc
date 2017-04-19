@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
-#include "glog/logging.h"
+#include <glog/logging.h>
+#include <chrono>
 #include "scope_guard.h"
 #include "util.h"
 
@@ -26,10 +27,12 @@ int main() {
       if (event.type == SDL_QUIT) {
         return 0;
       }
+      // state.handle_event(event)
     }
 
-    SDL_SetRenderDrawColor(renderer.get(), 128, 0, 0, 255);
     SDL_RenderClear(renderer.get());
+    // state.render();
+    SDL_SetRenderDrawColor(renderer.get(), 128, 0, 0, 255);
     SDL_RenderPresent(renderer.get());
   }
 }
