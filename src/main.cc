@@ -5,12 +5,12 @@
 #include "util.h"
 
 int main() {
-  using namespace spin;
+  using namespace kuru;
   CHECK_SDL(SDL_Init(SDL_INIT_EVERYTHING) == 0);
   const scope_guard sdl_quit(SDL_Quit);
 
   const sdl_ptr<SDL_Window> window(
-      SDL_CreateWindow("spin!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+      SDL_CreateWindow("kuru!", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
                        640, 480, SDL_WINDOW_SHOWN),
       SDL_DestroyWindow);
   CHECK_SDL(window);

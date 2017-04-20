@@ -1,7 +1,7 @@
 #pragma once
 #include <functional>
 
-namespace spin {
+namespace kuru {
 struct scope_guard {
   template <class Callable>
   explicit scope_guard(Callable&& cleanup)
@@ -13,4 +13,4 @@ struct scope_guard {
  private:
   const std::function<void()> cleanup;
 };
-}  // namespace spin
+}  // namespace kuru

@@ -6,7 +6,7 @@ cflags = subprocess.check_output(
 libs = subprocess.check_output(
     ['sdl2-config --static-libs'], shell=True).strip().split(' ')
 main = executable(
-    'main',
+    'kuru',
     files=find_files('src', '*.cc', extra='*.h'),
     compile_options=(
         ['-std=c++1z', '-Wall', '-Werror', '-Wextra', '-pedantic'] + cflags),
