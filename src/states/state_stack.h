@@ -1,5 +1,4 @@
 #pragma once
-#include <chrono>
 #include <vector>
 #include "state.h"
 
@@ -15,9 +14,11 @@ class StateStack {
   void render(SDL_Renderer& renderer) const {
     states_.back()->render(renderer);
   }
-  void handle_event(const SDL_Event& event,
-                    const std::chrono::milliseconds) const {
+  void handle_event(const SDL_Event& event) const {
     states_.back()->handle_event(event);
+  }
+  void update(const std::chrono::milliseconds delta_time) {
+    states_.back()->update(delta_time);
   }
 
  private:

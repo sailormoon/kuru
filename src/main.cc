@@ -30,16 +30,18 @@ int main(int, char** argv) {
   SDL_Event event;
   while (true) {
     const std::chrono::milliseconds now(SDL_GetTicks());
-    const auto delta = now - last_time;
+    const auto delta_time = now - last_time;
     last_time = now;
 
     while (SDL_PollEvent(&event)) {
       if (event.type == SDL_QUIT) {
         return 0;
       }
-      states.handle_event(event, delta);
+      states.handle_event(event);
     }
+    states.update(delta_time);
 
+    SDL_SetRenderDrawColor(renderer.get(), 0, 0, 0, 255);
     SDL_RenderClear(renderer.get());
     states.render(*renderer);
     SDL_RenderPresent(renderer.get());
